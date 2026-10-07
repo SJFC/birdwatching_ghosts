@@ -111,6 +111,22 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 .rowhelp{margin:0; min-height:2.8em; max-width:34rem; text-align:center; color:var(--ink-soft); font-size:1rem}
 .tally{margin:0; font-style:italic; font-size:1.2rem; min-height:1.5em; text-align:center}
 
+/* Head-to-head card (phones) */
+.h2h{display:none; width:calc(100vw - 2rem); max-width:26rem; border-radius:16px; background:#fbf9e8; padding:.5rem; border:1px solid var(--rule); box-shadow:0 1px 0 var(--rule), 0 10px 24px rgba(58,48,36,.12)}
+.h2h-inner{border:2px solid var(--ink); border-radius:11px; overflow:hidden}
+.h2h-head{display:grid; grid-template-columns:1fr 1fr; background:var(--ink); color:var(--paper)}
+.h2h-bird{padding:.5rem .4rem .45rem; text-align:center}
+.h2h-bird .pl{height:6.5rem; background:var(--paper); border-radius:6px; position:relative; margin-bottom:.35rem}
+.h2h-bird .pl img{position:absolute; inset:.3rem; width:calc(100% - .6rem); height:calc(100% - .6rem); object-fit:contain}
+.h2h-bird b{display:block; font-style:italic; font-size:1rem; line-height:1.15}
+.h2h-bird span{font-size:.75rem; opacity:.8}
+.h2h ol{list-style:none; margin:0; padding:.3rem .6rem .45rem}
+.h2h .trow{display:grid; grid-template-columns:1fr 3.6rem 3.6rem; gap:.3rem; font-size:.95rem}
+.h2h .trow .val{text-align:right}
+.h2h .trow.revealed .val.w{font-weight:700}
+.h2h .trow.revealed .val.w::before{content:"\2605\00a0"; font-size:.8em}
+.h2h .trow.total{font-size:1.05rem}
+
 /* Choose-a-card game */
 .game{padding:1rem 1rem 3rem; display:flex; flex-direction:column; align-items:center; gap:1rem}
 .game .deck{align-items:flex-start}
@@ -149,7 +165,7 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 .dotpanel circle{fill:var(--ink); opacity:0}
 .dotpanel circle.on{opacity:.85}
 @media (max-width:700px){
-  .deck{gap:.6rem} .tcard{width:44vw; padding:.3rem} .tcard header h3{font-size:1rem}
+  .trumps .deck{display:none} .h2h{display:block}
   .game.done .slotcard.other{display:none}
   .game.done .slotcard.chosen .tcard{width:min(24rem,calc(100vw - 2rem))}
   .game.done .trow .opp{display:inline; margin-left:.45em; font-size:.85em; color:var(--ink-soft); white-space:nowrap}
@@ -251,10 +267,10 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 <section class="about">
   <h2>Why was the Crissal Thrasher ghosted?</h2>
   <p class="kicker">First: it is drab.</p>
-  <p>The study gave every bird an aesthetic score, adding up points for seven features. Pick a card, and see whether it wins.</p>
+  <p>The study gave every bird an aesthetic score, adding up points for seven features. Deal the two cards and play them round by round.</p>
 </section>
 
-<section class="game" id="game" data-lose="You drew the Crissal Thrasher. It wins on size and lightness and draws on crest and extraordinary feature, but colour and pattern carry the most points and the Tree Swallow takes both. You lose, 7.1 to 13.2." data-win="You drew the Tree Swallow. You win, 13.2 to 7.1. The Crissal Thrasher beats you on size and lightness, but colour and pattern carry the most points, and your Swallow takes both." aria-label="Choose a card: Crissal Thrasher or Tree Swallow, face down"><div class="deck"><div class="slotcard"><button type="button" class="pick" aria-label="Card A, face down. Choose this card."></button><div class="flip"><div class="face back"><div class="backin"><img src="assets/cardback.jpg" alt=""></div></div><div class="face front"></div></div><p class="yours" hidden>Your card</p></div><div class="slotcard"><button type="button" class="pick" aria-label="Card B, face down. Choose this card."></button><div class="flip"><div class="face back"><div class="backin"><img src="assets/cardback.jpg" alt=""></div></div><div class="face front"></div></div><p class="yours" hidden>Your card</p></div></div><p class="result" aria-live="polite"></p><button type="button" class="again" hidden>Shuffle and play again</button><details class="howscore" hidden><summary>How the score works</summary><ul><li><b>Colour:</b> Points for each colour. Blue, yellow and green score most.</li><li><b>Pattern:</b> How varied the tones of the plumage are.</li><li><b>Lightness:</b> How bright the plumage reads overall.</li><li><b>Size:</b> Heavier birds score more.</li><li><b>Iridescence:</b> A shimmer to the feathers.</li><li><b>Crest:</b> A tuft of feathers on the head.</li><li><b>Extraordinary feature:</b> Tail streamers, horns, a striking eye or bill.</li><li><b>Aesthetic score:</b> the seven features added together.</li></ul></details><div hidden><article class="tcard" id="tc-t" aria-label="Crissal Thrasher scorecard"><div class="tcard-inner"><header><h3>Crissal Thrasher</h3><span>257th of 293</span></header><div class="plate"><img src="assets/row/crissal-thrasher.png" alt=""></div><ol><li class="trow" data-i="0"><span class="lab">Colour</span><span class="dots"></span><span class="val">1.5</span><span class="opp">vs 4.5</span></li><li class="trow" data-i="1"><span class="lab">Pattern</span><span class="dots"></span><span class="val">1.5</span><span class="opp">vs 4.7</span></li><li class="trow win" data-i="2"><span class="lab">Lightness</span><span class="dots"></span><span class="val">2.1</span><span class="opp">vs 1.5</span></li><li class="trow win" data-i="3"><span class="lab">Size</span><span class="dots"></span><span class="val">2.1</span><span class="opp">vs 1.5</span></li><li class="trow" data-i="4"><span class="lab">Iridescence</span><span class="dots"></span><span class="val">No</span><span class="opp">vs Yes</span></li><li class="trow" data-i="5"><span class="lab">Crest</span><span class="dots"></span><span class="val">None</span><span class="opp">vs None</span></li><li class="trow" data-i="6"><span class="lab"><span class="lab-long">Extraordinary feature</span><span class="lab-short">Extra feature</span></span><span class="dots"></span><span class="val">No</span><span class="opp">vs No</span></li><li class="trow total" data-i="7"><span class="lab"><b>Aesthetic score</b></span><span class="dots"></span><span class="val">7.1</span><span class="opp">vs 13.2</span></li></ol></div></article><article class="tcard" id="tc-s" aria-label="Tree Swallow scorecard"><div class="tcard-inner"><header><h3>Tree Swallow</h3><span>2nd of 293</span></header><div class="plate"><img src="assets/row/tree-swallow.png" alt=""></div><ol><li class="trow win" data-i="0"><span class="lab">Colour</span><span class="dots"></span><span class="val">4.5</span><span class="opp">vs 1.5</span></li><li class="trow win" data-i="1"><span class="lab">Pattern</span><span class="dots"></span><span class="val">4.7</span><span class="opp">vs 1.5</span></li><li class="trow" data-i="2"><span class="lab">Lightness</span><span class="dots"></span><span class="val">1.5</span><span class="opp">vs 2.1</span></li><li class="trow" data-i="3"><span class="lab">Size</span><span class="dots"></span><span class="val">1.5</span><span class="opp">vs 2.1</span></li><li class="trow win" data-i="4"><span class="lab">Iridescence</span><span class="dots"></span><span class="val">Yes</span><span class="opp">vs No</span></li><li class="trow" data-i="5"><span class="lab">Crest</span><span class="dots"></span><span class="val">None</span><span class="opp">vs None</span></li><li class="trow" data-i="6"><span class="lab"><span class="lab-long">Extraordinary feature</span><span class="lab-short">Extra feature</span></span><span class="dots"></span><span class="val">No</span><span class="opp">vs No</span></li><li class="trow total win" data-i="7"><span class="lab"><b>Aesthetic score</b></span><span class="dots"></span><span class="val">13.2</span><span class="opp">vs 7.1</span></li></ol></div></article></div></section>
+<section class="scrolly trumps" id="trumps" data-rounds="7" data-helps='["Points for each colour. Blue, yellow and green score most.", "How varied the tones of the plumage are.", "How bright the plumage reads overall.", "Heavier birds score more.", "A shimmer to the feathers.", "A tuft of feathers on the head.", "Tail streamers, horns, a striking eye or bill."]' aria-label="Scorecards comparing the Crissal Thrasher and the Tree Swallow on the seven features of the aesthetic score"><div class="pin pin3"><div class="deck"><article class="tcard" aria-label="Crissal Thrasher scorecard"><div class="tcard-inner"><header><h3>Crissal Thrasher</h3><span>257th of 293</span></header><div class="plate"><img src="assets/row/crissal-thrasher.png" alt=""></div><ol><li class="trow" data-i="0"><span class="lab">Colour</span><span class="dots"></span><span class="val">1.5</span></li><li class="trow" data-i="1"><span class="lab">Pattern</span><span class="dots"></span><span class="val">1.5</span></li><li class="trow win" data-i="2"><span class="lab">Lightness</span><span class="dots"></span><span class="val">2.1</span></li><li class="trow win" data-i="3"><span class="lab">Size</span><span class="dots"></span><span class="val">2.1</span></li><li class="trow" data-i="4"><span class="lab">Iridescence</span><span class="dots"></span><span class="val">No</span></li><li class="trow" data-i="5"><span class="lab">Crest</span><span class="dots"></span><span class="val">None</span></li><li class="trow" data-i="6"><span class="lab">Extraordinary feature</span><span class="dots"></span><span class="val">No</span></li><li class="trow total" data-i="7"><span class="lab"><b>Aesthetic score</b></span><span class="dots"></span><span class="val">7.1</span></li></ol></div></article><article class="tcard" aria-label="Tree Swallow scorecard"><div class="tcard-inner"><header><h3>Tree Swallow</h3><span>2nd of 293</span></header><div class="plate"><img src="assets/row/tree-swallow.png" alt=""></div><ol><li class="trow win" data-i="0"><span class="lab">Colour</span><span class="dots"></span><span class="val">4.5</span></li><li class="trow win" data-i="1"><span class="lab">Pattern</span><span class="dots"></span><span class="val">4.7</span></li><li class="trow" data-i="2"><span class="lab">Lightness</span><span class="dots"></span><span class="val">1.5</span></li><li class="trow" data-i="3"><span class="lab">Size</span><span class="dots"></span><span class="val">1.5</span></li><li class="trow win" data-i="4"><span class="lab">Iridescence</span><span class="dots"></span><span class="val">Yes</span></li><li class="trow" data-i="5"><span class="lab">Crest</span><span class="dots"></span><span class="val">None</span></li><li class="trow" data-i="6"><span class="lab">Extraordinary feature</span><span class="dots"></span><span class="val">No</span></li><li class="trow total win" data-i="7"><span class="lab"><b>Aesthetic score</b></span><span class="dots"></span><span class="val">13.2</span></li></ol></div></article></div><div class="h2h" aria-label="Crissal Thrasher and Tree Swallow, head to head"><div class="h2h-inner"><div class="h2h-head"><div class="h2h-bird"><div class="pl"><img src="assets/row/crissal-thrasher.png" alt=""></div><b>Crissal Thrasher</b><span>257th of 293</span></div><div class="h2h-bird"><div class="pl"><img src="assets/row/tree-swallow.png" alt=""></div><b>Tree Swallow</b><span>2nd of 293</span></div></div><ol><li class="trow" data-i="0"><span class="lab">Colour</span><span class="val">1.5</span><span class="val w">4.5</span></li><li class="trow" data-i="1"><span class="lab">Pattern</span><span class="val">1.5</span><span class="val w">4.7</span></li><li class="trow" data-i="2"><span class="lab">Lightness</span><span class="val w">2.1</span><span class="val">1.5</span></li><li class="trow" data-i="3"><span class="lab">Size</span><span class="val w">2.1</span><span class="val">1.5</span></li><li class="trow" data-i="4"><span class="lab">Iridescence</span><span class="val">No</span><span class="val w">Yes</span></li><li class="trow" data-i="5"><span class="lab">Crest</span><span class="val">None</span><span class="val">None</span></li><li class="trow" data-i="6"><span class="lab">Extra feature</span><span class="val">No</span><span class="val">No</span></li><li class="trow total" data-i="7"><span class="lab"><b>Aesthetic score</b></span><span class="val">7.1</span><span class="val w">13.2</span></li></ol></div></div><p class="rowhelp" aria-live="polite"></p><p class="tally" data-final="The Thrasher wins 2 rounds and draws 2, but colour and pattern carry the most points. The Swallow wins the game."></p></div></section>
 
 <section class="about">
   <p class="kicker">Second: it lives a long way from a university.</p>
@@ -416,48 +432,24 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
   document.querySelectorAll('.rowsec').forEach(initRow);
 
 
-  // ---- Choose a card
+  // ---- Scorecards: one round per scroll step
   (function(){
-    const g = document.getElementById('game'); if (!g) return;
-    const slots = [...g.querySelectorAll('.slotcard')], fronts = {t: g.querySelector('#tc-t'), s: g.querySelector('#tc-s')};
-    const result = g.querySelector('.result'), again = g.querySelector('.again'), how = g.querySelector('.howscore');
-    let assign, busy = false;
-    function deal(){
-      assign = Math.random() < .5 ? ['t','s'] : ['s','t'];
-      slots.forEach((sl,i) => {
-        sl.classList.remove('flipped','chosen','other');
-        sl.querySelector('.front').appendChild(fronts[assign[i]]);
-        const b = sl.querySelector('.pick'); b.hidden = false; b.disabled = false;
-        sl.querySelector('.yours').hidden = true;
-      });
-      g.classList.remove('done'); g.querySelectorAll('.trow').forEach(r => r.classList.remove('revealed','active'));
-      result.textContent = ''; again.hidden = true; how.hidden = true;
+    const sec = document.getElementById('trumps'); if (!sec) return;
+    const rows = [...sec.querySelectorAll('.trow')], help = sec.querySelector('.rowhelp'), tally = sec.querySelector('.tally');
+    const N = +sec.dataset.rounds, helps = JSON.parse(sec.dataset.helps);
+    let last = -1;
+    function update(){
+      const r = sec.getBoundingClientRect(), p = clamp(-r.top / (r.height - innerHeight));
+      let step = Math.min(N + 1, Math.floor(clamp((p - 0.06) / 0.8) * (N + 1.0001)));
+      if (reduce.matches) step = N + 1;
+      if (step === last) return; last = step;
+      rows.forEach(e => { const i = +e.dataset.i; e.classList.toggle('revealed', i < step); e.classList.toggle('active', i === step - 1); });
+      help.textContent = step === 0 ? 'Scroll to play the first round.' : (step <= N ? helps[step - 1] : 'Final score: the total of all seven features.');
+      tally.textContent = step > N ? tally.dataset.final : '';
     }
-    function pick(i){
-      if (busy) return; busy = true;
-      const fast = reduce.matches, me = slots[i], them = slots[1-i];
-      slots.forEach(sl => sl.querySelector('.pick').disabled = true);
-      me.classList.add('chosen','flipped'); me.querySelector('.yours').hidden = false; them.classList.add('other');
-      setTimeout(() => them.classList.add('flipped'), fast ? 0 : 450);
-      g.classList.add('done');
-      const A = [...me.querySelectorAll('.trow')], B = [...them.querySelectorAll('.trow')];
-      let k = 0;
-      const step = () => {
-        [A,B].forEach(rs => rs.forEach((r,j) => { r.classList.toggle('revealed', j <= k); r.classList.toggle('active', j === k); }));
-        if (++k < A.length) setTimeout(step, fast ? 0 : 420); else finish();
-      };
-      const finish = () => {
-        [A,B].forEach(rs => rs.forEach(r => r.classList.remove('active')));
-        result.textContent = g.dataset[assign[i] === 't' ? 'lose' : 'win'];
-        slots.forEach(sl => sl.querySelector('.pick').hidden = true);
-        again.hidden = false; how.hidden = false; busy = false; again.focus({preventScroll:true});
-      };
-      setTimeout(step, fast ? 0 : 1100);
-    }
-    slots.forEach((sl,i) => sl.querySelector('.pick').addEventListener('click', () => pick(i)));
-    again.addEventListener('click', deal);
-    deal();
+    addEventListener('scroll', update, {passive:true}); addEventListener('resize', update); update();
   })();
+
 
   // ---- Distance: the dotted line draws itself as the illustration crosses the screen
   (function(){
