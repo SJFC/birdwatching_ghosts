@@ -35,7 +35,8 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 /* Pinned scroll stage */
 .scrolly{position:relative; height:460svh}
 .pin{position:sticky; top:0; height:100svh; display:grid; place-items:center; padding:1rem}
-.stage{position:relative; aspect-ratio:4/5; width:min(calc(100vw - 2rem), calc((100svh - 2rem) * .8))}
+.stage{position:relative; aspect-ratio:4/5; width:min(100vw, calc(100svh * .8)); transform-origin:50% 0%; will-change:transform}
+#scrolly .pin{padding:0; overflow:hidden}
 .stage > *{position:absolute; inset:0; width:100%; height:100%}
 .stage .bg{background:url("assets/bg.jpg") center/100% 100% no-repeat}
 .birds .bird{position:absolute; height:auto; display:block; user-select:none; pointer-events:none}
@@ -314,6 +315,13 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
   const K = 0.4933;            // name ink strength at the top of the scale (matches the static file)
   const WMAX = 1;             // zero-paper birds and names fade to nothing
   const FADE_START = 0.08, FADE_END = 0.82;
+     const stage = document.querySelector('#scrolly .stage');
+  // Start slightly zoomed in, anchored at the top, and draw back to the whole picture as the ghosting runs.
+  function zoom(f){
+    const z0 = reduce.matches ? 1 : Math.min(1.25, Math.max(innerWidth / stage.offsetWidth, innerHeight / stage.offsetHeight));
+    const e = f < .5 ? 2*f*f : 1 - Math.pow(-2*f + 2, 2) / 2;
+    stage.style.transform = 'scale(' + (z0 + (1 - z0) * e).toFixed(4) + ')';
+  }
   const names = [...document.querySelectorAll('#names text')].map(e => ({e, t:+e.dataset.t, v:-1}));
   const drab  = [...document.querySelectorAll('.bird.drab')].map(e => ({e, t:+e.dataset.t}));
   const boost = [...document.querySelectorAll('.bird.boost')];
@@ -338,8 +346,9 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
   function update(){
     ticking = false;
     const p = progress();
-    if (reduce.matches){ apply(WMAX); return; }
-    apply(WMAX * clamp((p - FADE_START) / (FADE_END - FADE_START)));
+      if (reduce.matches){ apply(WMAX); zoom(1); return; }
+    const f = clamp((p - FADE_START) / (FADE_END - FADE_START));
+    apply(WMAX * f); zoom(f);
   }
   addEventListener('scroll', () => { if (!ticking){ ticking = true; requestAnimationFrame(update); } }, {passive:true});
   addEventListener('resize', update);
