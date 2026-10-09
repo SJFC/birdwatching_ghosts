@@ -1,50 +1,40 @@
-# Ghosted Birds: opening graphic, two resizing rows and the Crissal Thrasher card
+Birdwatching Ghosts
 
-Two versions of the same page:
+A long-form scrolling infographic about birds that research has overlooked, built from Fischer, Otten, Lindsay, Miles and Streby (2025), Proceedings of the Royal Society B 292: 20242846 (paper, data).
 
-- `index.html` + `assets/`: the editable version. Images are separate files, so the HTML is short and readable. Upload the whole folder.
-- `../ghosted-birds-single-file.html`: everything inlined in one file (about 3 MB). Drop it anywhere and it works.
+Live at https://sjfc.github.io/birdwatching_ghosts/. Sources, methods and image credits are in the notes at the foot of the page.
 
-## Hosting on GitHub Pages
-Put the folder in your repository (for example `/ghosted-birds/`). Pages will serve it at `.../ghosted-birds/`. No build step is needed. Fonts load from Google Fonts.
+Attribution
 
-## How the scroll works (bottom of index.html)
-- Each name and drab bird has a `data-t` value: its final strength, from 0.12 + 0.88 × ln(papers + 1) ÷ ln(598), or 0 for no papers.
-- Everything loses strength at the same rate as you scroll; each element stops at its own `data-t`.
-- `K = 0.4933` is the ink strength of a name at the top of the scale (calibrated to match the Photoshop file's 62% layer and Brightness/Contrast).
-- `FADE_START` / `FADE_END` set where in the pinned section the fade happens (0 = section top, 1 = bottom). `.scrolly{height:460svh}` sets how long the section is.
-- The Rufous Hummingbird and Barn Swallow have a second, boosted image on top that fades in across the scroll.
+Concept, research interpretation, visual design and creative direction: Sarah-Jane Crowson.
 
-## The resizing rows
-- Two rows share one script. Row A (`#rowA`) scrolls from research papers to population; row B (`#rowB`) scrolls from research papers to body size and offers all three states on its switch.
-- Each `<img class="rb">` has `data-s`: its scale in each of that row's states, in order. Each label line (`.ln`) matches a state and comes forward when that state is shown.
-- On each section, `data-from` / `data-to` set which states the scroll moves between, and `data-stops` sets where in the pinned section the change happens.
-- Painted area is interpolated between states, and every state has the same total area. Body size uses area proportional to length squared (lengths from Cornell's All About Birds).
-- The buttons pause the scroll; scrolling back above a section hands control back to the scroll. Reduced motion gives an instant switch.
+Technical build of the website, including the interactive game; calculations for the scaled graphics; first drafts of the imagined scores and notes: Claude (Anthropic), through an iterative, artist-directed process.
 
-## Why the Thrasher was ghosted
-- **Choose a card (`#game`):** two face-down cards (the back is the ghosted opening graphic, `assets/cardback.jpg`). The order is shuffled on every deal. Choosing a card flips both, plays the seven rounds of the aesthetic score in turn, and reports whether the reader won and why. Built from the paper's aesthetic-score components (Fischer et al. 2025 data file). The pick buttons are real buttons, so the game works by keyboard and screen reader; reduced motion skips the flip.
-- **Distance illustration (`#distance`):** Sarah-Jane's collage (`assets/distance.jpg`, cropped from her 2400 × 3000 file). The dotted line is an SVG path revealed by a clip rectangle as the figure scrolls up the screen; it is a gesture, not a measured distance.
-- **University dots (`#unis`):** one dot per four-year college or university within the breeding range (`Num_universities`). Both panels fill at the same rate and each stops at its own count.
+Critical dialogue, data ethics and editorial support: ChatGPT (OpenAI).
 
-## Phones (under 700px wide)
-- The resizing rows become a column: each bird sits in a slot as tall as it ever gets, with its label on the right showing only the current measure. Sizes are worked out in pixels from the column's height.
-- After a card is chosen, only the reader's card is shown, with the opponent's value beside each stat.
-- The university dot panels stay side by side.
+Fact-checking was shared in dialogue. All creative and interpretive decisions remained with the artist.
 
-## Adding the next section
-Add new `<section>`s after `</section>` of `#scrolly`. If the next graphic also pins and scrolls, copy the `.scrolly` / `.pin` pattern and give it its own id and script.
+The original research and its data analysis are the work of Fischer et al. (2025).
 
-## Attribution (AI use)
-Agreed between Sarah-Jane and Claude (Anthropic) at the end of the opening-graphic web build, October 2026.
+Files
+index.html: the whole page: markup, styles and scripts. Fonts load from Google Fonts; there is no build step.
+assets/: the background engraving, bird plates, range-map base and flock birds, the university collage (distance-map.jpg) and the card back. assets/row/ holds the cropped birds used in the rows and cards. distance.jpg is an earlier collage and is no longer used.
+How the page works
 
-- **Ideas:** Sarah-Jane conceived the scroll as the act of ghosting and made the key design decisions: same-rate fading, the boost, birds with no papers vanishing, the bright birds staying represented, and replacing the side captions with explainers. Claude proposed the timing options she chose from, suggested putting the birds on the same formula as the names, flagged the eight names missing from the field, and suggested keeping the empty labels as a record of absence.
-- **Drafting:** Claude coded the page and calibrated it against her Photoshop file.
-- **Revision and voice:** Sarah-Jane directed each iteration. The explainer text is still Claude's placeholder, to be rewritten in her voice.
+In page order:
 
-### Attribution for the build after the opening (AI use)
-Agreed between Sarah-Jane and Claude (Anthropic), October 2026.
+Opening tree (#scrolly). Each name and faded bird has a data-t value, its final strength: 0.12 + 0.88 × ln(papers + 1) ÷ ln(598), or 0 for no papers. Everything loses strength at the same rate as you scroll and stops at its own data-t. K = 0.4933 sets the names' ink strength to match the original artwork. The Rufous Hummingbird and Barn Swallow have a boosted image that fades in across the scroll. The stage starts slightly zoomed and draws back as the fade runs.
+Resizing rows (#rowA, #rowB). Each bird's data-s gives its scale in each state. Painted area is interpolated between states, and every state has the same total area; body size uses area proportional to length squared. data-from, data-to and data-stops set what the scroll moves between and when. The buttons pause the scroll; scrolling back above the section hands control back.
+Scorecards (.trumps: #trumps and #trumps2). One round is revealed per scroll step. data-helps holds the line shown for each round and data-final on .tally the closing line. The first uses the study's aesthetic scores; the second the imagined values.
+Range map (#ranges). Each little bird stands for about 41,000 breeding birds. Each has a data-o (when it appears as you scroll) and data-a (its final opacity, paler for the northernmost swallows).
+University collage (#distance). The dotted line is an SVG path revealed by a clip rectangle as the figure scrolls up the screen.
+University dots (#unis). One dot per four-year college or university in each breeding range. Both panels fill at the same rate and each stops at its own count.
+The game (#vgame). The deck and values live in data-deck and data-values. Cards are shuffled and dealt five each; the reader picks a value, the higher score takes both cards, draws wait in the middle for the next winner, and the other hand plays its highest value when it chooses.
 
-- **Ideas:** Sarah-Jane shaped the narrative arc and its sequence: the opening, the two resizing rows, the question about actual size, meeting the Crissal Thrasher, and the turn to "why", told from the Thrasher's side. She proposed sizing the birds by population, combining scroll and switch, cutting back to two comparisons before the body-size question, removing the findings from the introduction so the graphics carry the story, the game-card riff, the range-map overlay, and a methods note for transparency. She made the illustrations, including the ranked birds and the Oxford distance collage. Claude proposed drawing to true scale by painted area, keeping the same total area across states, the switch as the accessible control, the scorecard and university-dot graphics, and the "same rate, own stopping point" grammar for the dots. It checked the story against the paper's data: it found that shyness and distance weren't measured factors, that the Thrasher wins two scorecard rounds, the Scrub-Jay conservation question, and the Mexico coverage question.
-- **Drafting:** Claude wrote all the code. It sourced body lengths from Cornell, cleaned two cut-outs, analysed the paper's dataset, and drafted the placeholder explainers and the Thrasher card text from Cornell and Audubon sources.
-- **Revision and voice:** Sarah-Jane directed every iteration and made the editorial calls. The explainers and card text remain to be rewritten in her voice.
+Reduced-motion settings skip the animations throughout.
+
+Phones (under 700px wide)
+The resizing rows become a column, with each bird resizing beside its label.
+The two scorecards merge into one head-to-head card.
+In the game, the other hand's card shows only the value being played.
+The collage labels sit below the picture.
