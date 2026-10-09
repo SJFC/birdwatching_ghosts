@@ -204,6 +204,7 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 .mapdist .dist-art{aspect-ratio:2160/1560}
 .mapdist .dc{width:20%; background:rgba(245,243,218,.88); padding:.25em .4em; border-radius:3px}
 .mapdist .dc-left{left:22%; top:77%} .mapdist .dc-right{left:69%; top:61%}
+.mapdist .dc-right{left:87.5%; top:40%; transform:none; width:12%; text-align:left; background:none; padding:0}
 
 /* Imagined values game */
 .vgame{max-width:58rem; margin:0 auto; padding:1rem 1rem 4rem; display:flex; flex-direction:column; align-items:center; gap:1rem}
@@ -239,7 +240,7 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
   .mapdist .dist-art{aspect-ratio:auto; display:grid; grid-template-columns:1fr 1fr; column-gap:1rem; row-gap:.6rem}
   .mapdist .dist-art img{grid-column:1 / 3; height:auto}
   .mapdist .dist-art svg{inset:0 0 auto 0; height:auto; aspect-ratio:2160/1560}
-  .mapdist .dc{position:static; transform:none; width:auto; background:none; padding:0; font-size:.9rem}
+  .mapdist .dc{position:static; transform:none; width:auto; background:none; padding:0; font-size:.9rem; text-align:center}
 }
 
 
@@ -248,6 +249,10 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 .about h2{font-weight:400; font-style:italic; font-size:1.75rem; margin:0 0 1rem}
 .about p{margin:0 0 1.1em; hyphens:auto}
 .about .small{font-size:1rem; color:var(--ink-soft)}
+.about h3{font-weight:400; font-style:italic; font-size:1.35rem; margin:2rem 0 .7rem}
+.about details.data{margin:0 0 1em}
+.about details.data p{margin:0 0 .8em}
+.about details .tablewrap{margin:0 0 1.2em}
 
 </style>
 </head>
@@ -316,7 +321,7 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 </section>
 
 <section class="about">
-  <h2>Why was the Crissal Thrasher ghosted?</h2>
+  <h2>What might explain the Crissal Thrasher&rsquo;s absence?</h2>
   <p class="kicker">First: it is categorised as drab.</p>
   <p>In their quest to find out why some birds got more attention than others, the study gave every bird an aesthetic score, adding up points for seven features.</p>
 </section>
@@ -394,23 +399,54 @@ a:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
 <section class="about">
   <h2>About these graphics</h2>
   <p>Paper counts come from Fischer, Otten, Lindsay, Miles and Streby (2025), who counted publications on 293 North American birds from 1965 to 2020 and found that research attention tracks how colourful and familiar a bird is. For the full analysis, <a href="https://doi.org/10.1098/rspb.2024.2846">read the paper</a> or explore <a href="https://doi.org/10.5061/dryad.4f4qrfjpr">their data</a>.</p>
-  <p>Population figures are breeding estimates for the USA and Canada from the Partners in Flight Population Estimates Database (version 3.0, 2019). Papers are a 56-year total and populations a snapshot from about 2006 to 2015, so the comparison is illustrative. The Scrub-Jay population combines four species that were grouped together in the original study. Neither abundance nor body size is the &ldquo;right&rdquo; way to share attention: rarity and conservation need draw research too.</p>
-  <p>Body lengths are from the Cornell Lab of Ornithology&rsquo;s All About Birds identification pages; the Scrub-Jay uses the Woodhouse&rsquo;s and California Scrub-Jay range. In the body-size state, each bird&rsquo;s painted area is proportional to the square of its length.</p>
-  <p>The imagined values in the final card game are ours, not the study&rsquo;s. The seven values were suggested by the Cornell Lab of Ornithology&rsquo;s <a href="https://www.allaboutbirds.org/guide/Crissal_Thrasher/lifehistory">All About Birds pages on the Crissal Thrasher</a>, which describe one of the finest desert songsters: a bird that forages on the ground with its long, curved bill, runs rather than flies, and holds its territory as a pair all year. Each bird is scored from 1 to 10. The scores are judgement calls, checked against each bird&rsquo;s natural history (Canyon Towhees often pair for life; swifts and swallows are among the most agile fliers), and the choice of what to count, and how much, is deliberately ours. Every scoring system is someone&rsquo;s choice.</p>
+  <h3>A note on representation</h3>
+  <p>This infographic is a visual interpretation of research, not a reproduction of the original scientific analysis. It uses ten selected species from a dataset of 293 to explore how research attention influences what becomes visible and knowable.</p>
+  <p>The comparisons between publication counts, breeding populations and physical size are intended to challenge assumptions about representation, not to suggest that any one of these measures should determine research priorities. A bird&rsquo;s absence from the study&rsquo;s publication record does not mean that it has never been observed, described or studied: the Crissal Thrasher was written about in the ornithological journal <i>The Condor</i> as early as 1902.</p>
+  <p>The final game takes this questioning further. Its scores are imagined and deliberately subjective, though informed by each bird&rsquo;s natural history. By replacing one set of valued characteristics with another, it asks who decides what counts, how those decisions shape rankings, and what may be overlooked as a result.</p>
   <details class="data">
-    <summary>Sources for the imagined values</summary>
-    <p>Natural history for each bird is from the Cornell Lab of Ornithology&rsquo;s All About Birds life-history pages: <a href="https://www.allaboutbirds.org/guide/Crissal_Thrasher/lifehistory">Crissal Thrasher</a>, <a href="https://www.allaboutbirds.org/guide/Tree_Swallow/lifehistory">Tree Swallow</a>, <a href="https://www.allaboutbirds.org/guide/California_Scrub-Jay/lifehistory">California Scrub-Jay</a>, <a href="https://www.allaboutbirds.org/guide/Barn_Swallow/lifehistory">Barn Swallow</a>, <a href="https://www.allaboutbirds.org/guide/Rufous_Hummingbird/lifehistory">Rufous Hummingbird</a>, <a href="https://www.allaboutbirds.org/guide/Bobolink/lifehistory">Bobolink</a>, <a href="https://www.allaboutbirds.org/guide/Gray_Flycatcher/lifehistory">Gray Flycatcher</a>, <a href="https://www.allaboutbirds.org/guide/Canyon_Towhee/lifehistory">Canyon Towhee</a>, <a href="https://www.allaboutbirds.org/guide/White-throated_Swift/lifehistory">White-throated Swift</a> and <a href="https://www.allaboutbirds.org/guide/Philadelphia_Vireo/lifehistory">Philadelphia Vireo</a>.</p>
-    <p>Song scores follow what listeners find most pleasant in birdsong: complex songs with varied notes and trills score highest, simple, loud ones lowest. This is from <a href="https://www.frontiersin.org/journals/bird-science/articles/10.3389/fbirs.2026.1794594/full">a 2026 study in <i>Frontiers in Bird Science</i></a>, reported by <a href="https://www.audubon.org/magazine/most-beautiful-birdsong-study">Audubon</a>. The study rated European birds, so we used its findings as a guide rather than a score.</p>
+    <summary>The original research</summary>
+    <p>Fischer, Otten, Lindsay, Miles and Streby (2025), <a href="https://doi.org/10.1098/rspb.2024.2846">&ldquo;Six-decade research bias towards fancy and familiar bird species&rdquo;</a>, <i>Proceedings of the Royal Society B</i> 292: 20242846.</p>
+    <p><b>The sample.</b> The study covers 293 songbirds and their near relatives whose breeding ranges lie entirely or mostly in the continental USA and Canada.</p>
+    <p><b>The period.</b> It counts papers published over 56 years, from 1965 to 2020, as indexed by Web of Science. The authors read through the results by hand and kept only papers in which the bird was a main focus, so a passing mention does not count. The Tree Swallow tops the list with 597 papers; ten species, including the Crissal Thrasher, have none.</p>
+    <p><b>What it establishes.</b> Three things go together with more research: a bird&rsquo;s visual appeal, the size of its breeding range, and the number of universities within that range. Together they account for nearly half the variation in research between species. Of the seven features in the aesthetic score, only colour and pattern made a difference. The study shows that these traits and research attention go together; it does not set out to explain every bird&rsquo;s neglect, or to rank birds by worth.</p>
   </details>
-  <p>On the range map, each little bird stands for about 41,000 breeding birds, from the Partners in Flight estimates: two Crissal Thrashers and 463 Tree Swallows, spread evenly across each breeding range. Ranges are approximate and drawn by hand on a nineteenth-century map, after the Cornell Lab of Ornithology. The Tree Swallow&rsquo;s southern breeding limit follows the American Ornithologists&rsquo; Union checklist (southern California, central Nevada, central Arizona, south-central New Mexico, north-eastern Louisiana, Tennessee and North Carolina); most of its range, and most of its birds, lie in Canada, beyond the top of the map. The Crissal Thrasher&rsquo;s range continues south into Mexico, beyond the map&rsquo;s edge.</p>
   <details class="data">
-    <summary>The figures for the ten birds</summary>
+    <summary>How the birds were represented</summary>
+    <p><b>Fading.</b> In the opening tree, each bird and name fades according to its paper count, on a logarithmic scale, so the gap between no papers and four shows as clearly as the gap between 100 and 597. Birds with no papers vanish completely. The five featured birds with 100 or more papers stay at full strength. The Rufous Hummingbird and Barn Swallow grow brighter as you scroll, a colour boost carried over from the original artwork as a nod to the paper&rsquo;s point that attention compounds; it is not a data value.</p>
+    <p><b>Painted area.</b> In the resizing rows, each bird&rsquo;s painted area is proportional to its share of papers or of population, measured from the painted pixels so that birds in different poses are compared fairly. Both rows share out the same total area, like one budget of attention divided two ways.</p>
+    <p><b>Population.</b> Population figures are breeding estimates for the USA and Canada from the Partners in Flight Population Estimates Database (version 3.0, 2019). Papers are a 56-year total and populations a snapshot from about 2006 to 2015, so the comparison is illustrative. The Scrub-Jay population combines four species that were grouped together in the original study. For the Crissal Thrasher, the USA and Canada estimate is about 82,000; the global estimate, including Mexico, is about 110,000.</p>
+    <p><b>Body length.</b> Lengths are from the Cornell Lab of Ornithology&rsquo;s All About Birds identification pages; the Scrub-Jay uses the Woodhouse&rsquo;s and California Scrub-Jay range. Each bird&rsquo;s painted area is proportional to the square of its length. Because every bird is resized until its area matches, the size it was originally painted at cancels out. Pose does not: birds drawn with wings or tail spread, like the Rufous Hummingbird and Barn Swallow, spend some of their area on feathers, so their bodies come out slightly small.</p>
+    <p><b>Aesthetic scores.</b> The scores and ranks in the first scorecards are the study&rsquo;s, made from the illustrations in the Sibley Birds app. Playing them as rounds of a card game, with a star for each winner, is ours: the study simply adds the points.</p>
+    <p><b>Contrasting ways of seeing.</b> Papers, population and body size are not competing measures of a bird&rsquo;s importance. Each is a different way of looking at the same ten birds, and each changes which of them fills the frame.</p>
+  </details>
+  <details class="data">
+    <summary>Geography, proximity and limitations</summary>
+    <p><b>Breeding ranges.</b> Range size is one of the study&rsquo;s three measures, calculated from BirdLife International range maps. On our map the ranges are approximate and drawn by hand, after the Cornell Lab of Ornithology, on an 1860s Map of the United States, showing the New and Proposed Railways to the Pacific Ocean. Each little bird stands for about 41,000 breeding birds, from the Partners in Flight estimates: two Crissal Thrashers and 463 Tree Swallows, spread evenly across each range, so their positions are not real locations. The Tree Swallow&rsquo;s southern breeding limit follows the American Ornithologists&rsquo; Union checklist (southern California, central Nevada, central Arizona, south-central New Mexico, north-eastern Louisiana, Tennessee and North Carolina).</p>
+    <p><b>The edges of the map.</b> Most of the Tree Swallow&rsquo;s range, and most of its birds, lie in Canada beyond the top of the map, so the northernmost are drawn paler. The Crissal Thrasher&rsquo;s range continues south into Mexico, beyond the map&rsquo;s edge.</p>
+    <p><b>Universities.</b> The counts of 21 and 1,414 are the study&rsquo;s: the number of four-year colleges and universities inside each bird&rsquo;s breeding range. Only institutions in the USA and Canada were counted, so the Thrasher&rsquo;s range in Mexico adds none. The collage is imagined. The study counted universities within each range rather than measuring distance, so the dotted line between the desert shrub and the university gate is a gesture, not a measurement.</p>
+    <p><b>Association, not causation.</b> The study shows that small ranges, few nearby universities and drab plumage go together with little research. It does not show that any one of them caused a particular bird&rsquo;s neglect, and the authors note that other things they did not measure, such as behaviour, song or migration, may also play a part. That is why this section asks what <i>might</i> explain the Crissal Thrasher&rsquo;s absence.</p>
+  </details>
+  <details class="data">
+    <summary>The imagined scoring system</summary>
+    <p><b>Why it exists.</b> The game is deliberately subjective. Its purpose is to expose how selecting attributes constructs a ranking, not to produce another scientific measure. Change what you count, and the order of the birds changes with it.</p>
+    <p><b>Where the values came from.</b> The seven values were suggested by the Cornell Lab&rsquo;s pages on the Crissal Thrasher, which describe one of the finest desert songsters: a bird that forages on the ground with its long, curved bill, runs rather than flies, and holds its territory as a pair all year. Choosing them from the Thrasher&rsquo;s own natural history tilts the game in its favour, and that is part of the point: the original aesthetic score was also built from a particular way of looking.</p>
+    <p><b>How the birds were scored.</b> Each bird is scored from 1 to 10 on each value. The scores are judgement calls, checked against each bird&rsquo;s natural history on the Cornell Lab&rsquo;s life-history pages. Song scores follow what listeners find most pleasant in birdsong: complex songs with varied notes and trills score highest, simple, loud ones lowest, from a 2026 study of European birds used here as a guide rather than a score.</p>
+    <p><b>How the game plays.</b> The cards are shuffled at random. When the other hand chooses, it plays its card&rsquo;s highest value. Each card shows the bird&rsquo;s real number of research papers, so the ghosted birds can be seen winning.</p>
+  </details>
+  <details class="data">
+    <summary>Sources, data and image credits</summary>
+    <p><b>The figures for the ten birds.</b></p>
     <div class="tablewrap"><table>
       <thead><tr><th scope="col">Bird</th><th scope="col">Research papers</th><th scope="col">Population</th><th scope="col">Length</th></tr></thead>
       <tbody><tr><th scope="row">Philadelphia Vireo</th><td>0</td><td>4 million</td><td>11–12 cm</td></tr><tr><th scope="row">Crissal Thrasher</th><td>0</td><td>82,000</td><td>30 cm</td></tr><tr><th scope="row">White-throated Swift</th><td>1</td><td>2.4 million</td><td>15–18 cm</td></tr><tr><th scope="row">Canyon Towhee</th><td>3</td><td>2.8 million</td><td>21–25 cm</td></tr><tr><th scope="row">Gray Flycatcher</th><td>4</td><td>2.9 million</td><td>14–15 cm</td></tr><tr><th scope="row">Bobolink</th><td>100</td><td>10 million</td><td>15–21 cm</td></tr><tr><th scope="row">Rufous Hummingbird</th><td>112</td><td>22 million</td><td>7–9 cm</td></tr><tr><th scope="row">Barn Swallow</th><td>123</td><td>47 million</td><td>15–19 cm</td></tr><tr><th scope="row">Scrub-Jay</th><td>224</td><td>~2 million</td><td>28–30 cm</td></tr><tr><th scope="row">Tree Swallow</th><td>597</td><td>19 million</td><td>12–15 cm</td></tr></tbody>
     </table></div>
+    <p><b>Research.</b> Fischer, S. E., Otten, J. G., Lindsay, A. M., Miles, D. and Streby, H. M. (2025). <a href="https://doi.org/10.1098/rspb.2024.2846">Proceedings of the Royal Society B 292: 20242846</a>. <a href="https://doi.org/10.5061/dryad.4f4qrfjpr">Data on Dryad</a>.</p>
+    <p><b>Population.</b> Partners in Flight Population Estimates Database, version 3.0 (2019).</p>
+    <p><b>Natural history and body length.</b> Cornell Lab of Ornithology, All About Birds: <a href="https://www.allaboutbirds.org/guide/Crissal_Thrasher/lifehistory">Crissal Thrasher</a>, <a href="https://www.allaboutbirds.org/guide/Tree_Swallow/lifehistory">Tree Swallow</a>, <a href="https://www.allaboutbirds.org/guide/California_Scrub-Jay/lifehistory">California Scrub-Jay</a>, <a href="https://www.allaboutbirds.org/guide/Barn_Swallow/lifehistory">Barn Swallow</a>, <a href="https://www.allaboutbirds.org/guide/Rufous_Hummingbird/lifehistory">Rufous Hummingbird</a>, <a href="https://www.allaboutbirds.org/guide/Bobolink/lifehistory">Bobolink</a>, <a href="https://www.allaboutbirds.org/guide/Gray_Flycatcher/lifehistory">Gray Flycatcher</a>, <a href="https://www.allaboutbirds.org/guide/Canyon_Towhee/lifehistory">Canyon Towhee</a>, <a href="https://www.allaboutbirds.org/guide/White-throated_Swift/lifehistory">White-throated Swift</a> and <a href="https://www.allaboutbirds.org/guide/Philadelphia_Vireo/lifehistory">Philadelphia Vireo</a>.</p>
+    <p><b>Birdsong.</b> <a href="https://www.frontiersin.org/journals/bird-science/articles/10.3389/fbirs.2026.1794594/full">A 2026 study in <i>Frontiers in Bird Science</i></a> of the songs listeners find most pleasant, reported by <a href="https://www.audubon.org/magazine/most-beautiful-birdsong-study">Audubon</a>.</p>
+    <p><b>Images.</b> Bird illustrations are public-domain plates from the Biodiversity Heritage Library. The tree is <i>Ilex aculeata</i>, Plate 117. The range maps use an 1860s Map of the United States, showing the New and Proposed Railways to the Pacific Ocean. Collages by Sarah-Jane Crowson.</p>
+    <p><b>Attribution.</b> Built in dialogue with Claude (Anthropic). The division of labour is recorded in the project&rsquo;s README.</p>
   </details>
-  <p class="small">In the resizing rows, each bird&rsquo;s painted area is proportional to its papers or its population, measured from the painted pixels so that birds in different poses are compared fairly. Bird illustrations are public-domain plates from the Biodiversity Heritage Library; the tree is Ilex aculeata, Plate 117.</p>
 </section>
 
 <script>
